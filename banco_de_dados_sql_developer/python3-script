@@ -1,0 +1,23 @@
+print("****************")
+print("FAZENDA DA LÚCIA")
+print("****************")
+def busca_binaria(f, p, g, x):
+    if p <= g:
+        q = (p + g) // 2
+        if x > f[q]:
+            return busca_binaria(f, q + 1, g, x)
+        elif x < f[q]:
+            return busca_binaria(f, p, q - 1, x)
+        else:
+            return q
+
+    return -1
+
+vaca_ord = list(range(1, 41))
+vaca = 41
+coord = busca_binaria(vaca_ord, 0, len(vaca_ord) - 1, vaca)
+if coord > 0:
+    print("A vaca %d foi ordenhada e se encontra na coordenada: %d." % (vaca, coord))
+else:
+    print("Resultado de busca: Nº de vacas ordenhadas.")
+print(vaca_ord)

@@ -1,0 +1,121 @@
+create table funcionario
+( id_funcionario varchar (10) not null,
+nome varchar (100)  not null,
+cpf varchar (8) not null,
+salario float null,
+endereco varchar (100)  null,
+
+primary key (id_funcionario));
+
+create table producao_leite
+( id_prod_leit varchar (10) not null,
+especie	varchar (100)  null,
+ordenha	varchar (100)  null,
+temperatura_leite varchar (100)  null,
+dat_vacina	date null,
+inseminacao	varchar (100)  null,
+dat_parto	date null,
+secagem	varchar (100)  null,
+ruminacao varchar (100)  null,
+primary key (id_prod_leit));
+
+create table produto
+( id_prod varchar (100)  not null,
+nome	varchar (100)  not null,
+tipo	varchar (100)  not null,
+qtd_estoque varchar (100)  not null,
+preco float null,
+primary key (id_prod));
+
+create table equipamento
+( id_equipamento varchar (100)  not null,
+nome varchar (100)  not null,
+tipo varchar (100)  not null,
+primary key (id_equipamento));
+
+create table varejista
+(id_varej varchar (100)  not null,
+empreiteira varchar (100)  not null,
+endereco varchar (100)  not null,
+primary key (id_varej));
+
+Quadro 1: INSERINDO COLUNAS E TABELAS
+
+
+alter table funcionario add genero varchar (10) not null;
+alter table funcionario add dat_nascimento date null;
+alter table funcionario add cidade varchar (10) not null;
+alter table funcionario add cep varchar (10) null;
+alter table funcionario add rg varchar (10) not null;
+--inserindo colunas equipamento
+alter table equipamento add dsc_equip varchar (100) not null;
+alter table equipamento add tamanho varchar (100) not null;
+alter table equipamento add preco_equip varchar (100) not null;
+--inserindo colunas varejista
+alter table varejista add qtd_prod_varej varchar (100) not null;
+
+
+Quadro 2: INSERINDO COLUNAS FUNCIONARIO
+
+select * from funcionario;
+select * from producao_leite;
+select * from produto;
+select * from equipamento;
+select * from varejista;
+select 
+*
+from 
+funcionario f,
+producao_leite pl,
+produto p,
+equipamento e,
+varejista v
+
+where
+
+f.id_funcionario = f.id_funcionario and
+p.id_prod = p.id_prod and
+e.id_equipamento = e.id_equipamento and
+v.id_varej = v.id_varej;
+
+select 
+v.id_varej,
+v.endereco,
+v.qtd_prod_varej,
+f.id_funcionario,
+f.nome_fun
+from 
+funcionario f,
+producao_leite pl,
+produto p,
+equipamento e,
+varejista v
+where
+f.id_funcionario = f.id_funcionario and
+p.id_prod = p.id_prod and
+e.id_equipamento = e.id_equipamento and
+v.id_varej = v.id_varej;
+
+select 
+f.id_funcionario,
+f.nome_fun,
+f.genero,
+f.salario,
+pl.dat_parto,
+pl.dat_vacina
+from 
+funcionario f,
+producao_leite pl,
+produto p,
+equipamento e,
+varejista v
+
+where
+
+f.id_funcionario = f.id_funcionario and
+p.id_prod = p.id_prod and
+e.id_equipamento = e.id_equipamento and
+v.id_varej = v.id_varej;
+
+Quadro 3: CONSULTAS
+
